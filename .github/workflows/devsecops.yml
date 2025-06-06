@@ -70,8 +70,7 @@ jobs:
 
       - name: Run DSVW container
         run: |
-          docker run -d -p 3000:8000 --name dsvw dsvw:latest
-          # Czekaj aż aplikacja będzie dostępna
+          docker run -d -p 3000:65412 --name dsvw dsvw:latest
           for i in {1..10}; do
             if curl -s http://localhost:3000 > /dev/null; then
               echo "Aplikacja działa!"
