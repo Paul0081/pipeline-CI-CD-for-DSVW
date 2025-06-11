@@ -70,15 +70,7 @@ jobs:
 
       - name: Run DSVW container
         run: |
-          docker run -d -p 3000:65412 --name dsvw dsvw:latest
-          for i in {1..10}; do
-            if curl -s http://localhost:3000 > /dev/null; then
-              echo "Aplikacja działa!"
-              break
-            fi
-            echo "Czekam na uruchomienie aplikacji..."
-            sleep 3
-          done
+          docker run -d --name dsvw dsvw:latest
 
       - name: Run OWASP ZAP Baseline Scan (DAST)
         uses: zaproxy/action-baseline@v0.10.0
